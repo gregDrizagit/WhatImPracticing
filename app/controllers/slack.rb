@@ -1,4 +1,4 @@
-class Slack < ApplicationController
+class SlackController < ApplicationController
 
     def helloworld
         puts 'hit the route'
