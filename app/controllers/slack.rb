@@ -1,5 +1,4 @@
 class SlackController < ApplicationController
-    require 'rest-client'
 
     def helloworld
 

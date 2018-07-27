@@ -1,4 +1,5 @@
 require_relative 'boot'
+require 'rest-client'
 
 require 'rails/all'
 
