@@ -1,6 +1,6 @@
 class SlackController < ApplicationController
 
     def helloworld
-        puts 'hit the route'
+        render json: params[:payload] 
     end
 end
