@@ -14,8 +14,9 @@ class SlackController < ApplicationController
         elsif params['payload']
 
             if params['payload']['type'] == "interactive_message"
+                trigger_id = params['payload']['trigger_id']
                 response_text = open_add_dialogue()
-                send_response(response_text)
+                send_dialogue(response_text, trigger_id)
             end
         end
         
@@ -96,6 +97,13 @@ class SlackController < ApplicationController
         url = 'https://hooks.slack.com/services/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'
         data = res.to_json
         response = RestClient.post(url, data, :content_type => :json)
+    end
+
+    def send_dialogue(dialogue, trigger_id)
+        token = 'xoxp-406277854996-405804062576-406661989989-3f2429a732066e7d2f4d485d5d705c48'
+        url = 'https://slack.com/api/dialog.open'
+        data = dialogue.to_json
+        response = RestClient.post(url, data, :content_type => :json, {"Authorization": token})
     end
 
 
