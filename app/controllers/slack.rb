@@ -106,6 +106,7 @@ class SlackController < ApplicationController
             :trigger_id => trigger_id
         }
         response = RestClient.post(url, data, headers)
+        puts response
     end
 
 
