@@ -14,6 +14,7 @@ class SlackController < ApplicationController
         elsif params['payload']
 
             if params['payload']['type'] == "interactive_message"
+                puts'went in HEREREERERE'
                 trigger_id = params['payload']['trigger_id']
                 dialogue = open_add_dialogue()
                 send_dialogue(dialogue, trigger_id)
@@ -89,7 +90,7 @@ class SlackController < ApplicationController
     end
 
     def add_session()
-        Session.add()
+        # Session.add()
     end
 
     def send_response(res)
