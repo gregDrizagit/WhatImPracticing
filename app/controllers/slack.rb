@@ -12,20 +12,16 @@ class SlackController < ApplicationController
         
         response_text = ""
 
-        # case text.downcase
+        downcase_text = text.downcase
 
-        # when text.include?('add')
-        #     response_text = 'Okay, how long did you practice today'
-        # when text.include?('edit')
-        #     response_text = 'what do you want to edit'
-        # when text.include?('delete')
-        #     response_text = 'what do you want to delete'
-        # else
-        #     response_text = "I don't know what that means. Say something that I know what it means."
-        # end
-
-        if text.include? 'add'
+       response_text = "I don't know what that means. Say something that I know what it means."
+    
+        if downcase_text.include? 'add'
             response_text = "Cool how long did you practice"
+        elsif downcase_text.include? 'delete'
+            response_text ="What do you want to delete"
+        elsif downcase_text.include? "edit"
+            response_text = "what do you want to edit"
         end
 
         response_text
