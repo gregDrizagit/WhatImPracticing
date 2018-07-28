@@ -14,7 +14,7 @@ class SlackController < ApplicationController
         elsif params['payload']
 
             if params['payload']['type'] == "interactive_message"
-                if params['payload']['value'] == "Add"
+                if params['payload']['actions'].last == "Add"
                     puts 'ADDDDD'
                 end
             end
@@ -71,8 +71,6 @@ class SlackController < ApplicationController
             "text": "Add practice routine/",
             "attachments": [
                 {
-                    "fallback": "You are unable to choose a game",
-                    "callback_id": "wopr_game",
                     "color": "#3AA3E3",
                     "attachment_type": "default",
                     "actions": [
