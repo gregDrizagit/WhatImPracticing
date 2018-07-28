@@ -103,7 +103,12 @@ class SlackController < ApplicationController
         token = 'xoxp-406277854996-405804062576-406661989989-3f2429a732066e7d2f4d485d5d705c48'
         url = 'https://slack.com/api/dialog.open'
         data = dialogue.to_json
-        response = RestClient.post(url, data, :content_type => :json, {"Authorization": token})
+        headers = {
+            :content_type => :json, 
+            :authorization => token
+            :trigger_id => trigger_id
+        }
+        response = RestClient.post(url, data, headers)
     end
 
 
