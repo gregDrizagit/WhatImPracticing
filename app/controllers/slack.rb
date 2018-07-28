@@ -9,10 +9,15 @@ class SlackController < ApplicationController
                 response_text = parse_text(params['event']['text']) #see what the message was
                 send_response(response_text) #send the response
 
-                puts "APP MENTION"
             end
+
         elsif params['payload']
-            puts 'INTERACTIVE MESSAGE'
+
+            if params['payload']['type'] == "interactive_message"
+                if params['payload']['type']['name'] == "Add"
+                    puts 'ADDDDD'
+                end
+            end
         end
         
     end
@@ -23,7 +28,6 @@ class SlackController < ApplicationController
 
         downcase_text = text.downcase
 
-    
         if downcase_text.include? 'add'
             response_text = add_trigger()
         elsif downcase_text.include? 'delete'
