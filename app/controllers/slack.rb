@@ -12,15 +12,16 @@ class SlackController < ApplicationController
         
         response_text = ""
 
-        case text
-            when text.include?('add')
-                response_text = 'Okay, how long did you practice today'
-            when text.include?('edit')
-                response_text = 'what do you want to edit'
-            when text.include?('delete')
-                response_text = 'what do you want to delete'
-            else
-                response_text = "I don't know what that means. Say something that I know what it means."
+        case text.downcase
+
+        when text.include?('add')
+            response_text = 'Okay, how long did you practice today'
+        when text.include?('edit')
+            response_text = 'what do you want to edit'
+        when text.include?('delete')
+            response_text = 'what do you want to delete'
+        else
+            response_text = "I don't know what that means. Say something that I know what it means."
         end
 
         return response_text
@@ -29,7 +30,7 @@ class SlackController < ApplicationController
 
     def send_response(res)
         url = 'https://hooks.slack.com/services/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'
-        data =  {text: res}.to_json
+        data = {text: res}.to_json
         response = RestClient.post(url, data, :content_type => :json)
     end
 
