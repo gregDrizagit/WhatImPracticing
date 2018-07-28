@@ -15,7 +15,6 @@ class SlackController < ApplicationController
                 trigger_id = params['payload']['trigger_id']
                 dialogue = open_add_dialogue()
                 send_dialogue(dialogue, trigger_id)
-            end
         end
         
     end
