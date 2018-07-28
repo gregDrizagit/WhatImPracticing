@@ -5,7 +5,7 @@ class SlackController < ApplicationController
         response_text = parse_text(params['text'])
         
         send_response(response_text)
-        
+
     end
 
     def parse_text(text)
@@ -13,11 +13,11 @@ class SlackController < ApplicationController
         response_text = ''
 
         case text
-            when text.includes('add')
+            when text.include?('add')
                 response_text = 'Okay, how long did you practice today'
-            when text.includes('edit')
+            when text.include?('edit')
                 response_text = 'what do you want to edit'
-            when text.includes('delete')
+            when text.include?('delete')
                 response_text = 'what do you want to delete'
             else
                 response_text = "I don't know what that means. Say something that I know what it means."
