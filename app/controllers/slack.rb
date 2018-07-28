@@ -44,7 +44,6 @@ class SlackController < ApplicationController
 
     def open_add_dialogue 
         open_dialogue = {
-            "trigger_id": "13345224609.738474920.8088930838d88f008e0",
             "dialog": {
                 "callback_id": "ryde-46e2b0",
                 "title": "Request a Ride",
@@ -100,12 +99,12 @@ class SlackController < ApplicationController
     end
 
     def send_dialogue(dialogue, trigger_id)
-        token = 'xoxp-406277854996-405804062576-406661989989-3f2429a732066e7d2f4d485d5d705c48'
+        token = 'Bearer xoxp-406277854996-405804062576-406661989989-3f2429a732066e7d2f4d485d5d705c48'
         url = 'https://slack.com/api/dialog.open'
         data = dialogue.to_json
         headers = {
             :content_type => :json, 
-            :authorization => token,
+            :Authorization => token,
             :trigger_id => trigger_id
         }
         response = RestClient.post(url, data, headers)
