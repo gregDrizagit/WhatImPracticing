@@ -14,7 +14,7 @@ class SlackController < ApplicationController
         elsif params['payload']
 
             if params['payload']['type'] == "interactive_message"
-                if params['payload']['type']['value'] == "Add"
+                if params['payload']['value'] == "Add"
                     puts 'ADDDDD'
                 end
             end
