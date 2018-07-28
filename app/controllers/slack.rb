@@ -98,7 +98,7 @@ class SlackController < ApplicationController
 
     def send_dialogue(dialogue)
         puts 'sent dialouge!!!!!!!!!!!!!!!!!!!'
-        token = 'Bearer xoxp-406277854996-405804062576-406661989989-3f2429a732066e7d2f4d485d5d705c48'
+        token = 'Bearer xoxb-406277854996-406582689938-SNKLIUU3erryz00MrZDGdOl3'
         url = 'https://slack.com/api/dialog.open'
         data = dialogue.to_json
         headers = {
