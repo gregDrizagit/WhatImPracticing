@@ -22,7 +22,7 @@ class SlackController < ApplicationController
 
     
         if downcase_text.include? 'add'
-            response_text = add_dialogue()
+            response_text = add_trigger()
         elsif downcase_text.include? 'delete'
             response_text ="What do you want to delete"
         elsif downcase_text.include? "edit"
