@@ -3,6 +3,6 @@ Rails.application.routes.draw do
 
 
   post '/', to: "slack#event_receiver"
-  post '/add', to "slack#open_add_dialogue"
+  # post '/add', to "slack#open_add_dialogue"
 
 end
