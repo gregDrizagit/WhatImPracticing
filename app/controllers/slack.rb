@@ -2,16 +2,19 @@ class SlackController < ApplicationController
 
     def event_receiver
 
-        if params['event']['type'] == "app_mention"
+        if params['event'] # did we get an event message or a payload
 
-            response_text = parse_text(params['event']['text'])
-            send_response(response_text)
+            if params['event']['type'] == "app_mention" # if we got an app mention 
 
-            puts "APP MENTION"
+                response_text = parse_text(params['event']['text']) #see what the message was
+                send_response(response_text) #send the response
 
-        elsif params['event']['type'] == "interactive_message"
-            puts "INTERACTIVE MESSAGE"
-        end 
+                puts "APP MENTION"
+            end
+        elsif params['payload']
+            puts 'INTERACTIVE MESSAGE'
+        end
+        
     end
 
     def parse_text(text)
