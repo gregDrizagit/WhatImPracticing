@@ -21,7 +21,7 @@ class SlackController < ApplicationController
                 response_text = "I don't know what that means. Say something that I know what it means."
         end
 
-        # response_text
+        response_text
         
     end
 
