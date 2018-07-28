@@ -105,7 +105,7 @@ class SlackController < ApplicationController
         data = dialogue.to_json
         headers = {
             :content_type => :json, 
-            :authorization => token
+            :authorization => token,
             :trigger_id => trigger_id
         }
         response = RestClient.post(url, data, headers)
