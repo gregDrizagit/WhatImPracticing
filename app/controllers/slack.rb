@@ -10,6 +10,7 @@ class SlackController < ApplicationController
 
     def parse_text(text)
         
+        response_text = ""
         case text
             when text.include?('add')
                 response_text = 'Okay, how long did you practice today'
