@@ -4,8 +4,8 @@ class SlackController < ApplicationController
 
         if params['event']['type'] == "app_mention"
 
-            # response_text = parse_text(params['event']['text'])
-            # send_response(response_text)
+            response_text = parse_text(params['event']['text'])
+            send_response(response_text)
 
             puts "APP MENTION"
 
