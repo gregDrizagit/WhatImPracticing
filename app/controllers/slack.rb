@@ -12,9 +12,6 @@ class SlackController < ApplicationController
             end
 
         elsif params['payload']
-            puts'went in HEREREERERE'
-
-            if params['payload']['type'] == "interactive_message"
                 trigger_id = params['payload']['trigger_id']
                 dialogue = open_add_dialogue()
                 send_dialogue(dialogue, trigger_id)
