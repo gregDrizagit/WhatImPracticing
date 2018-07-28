@@ -10,10 +10,12 @@ class SlackController < ApplicationController
 
     def parse_text(text)
 
-        response_text = ''
-        if text.include? 'Hey'
-            response_text = 'yo'
-        end
+        puts text
+        puts "type" + type(text)
+        # response_text = ''
+        # if text.include? 'Hey'
+        #     response_text = 'yo'
+        # end
         # case text
         #     when text.include?('add')
         #         response_text = 'Okay, how long did you practice today'
@@ -25,7 +27,7 @@ class SlackController < ApplicationController
         #         response_text = "I don't know what that means. Say something that I know what it means."
         # end
 
-        response_text
+        # response_text
         
     end
 
