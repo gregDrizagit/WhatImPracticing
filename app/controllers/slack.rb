@@ -71,6 +71,8 @@ class SlackController < ApplicationController
             "text": "Add practice routine/",
             "attachments": [
                 {
+                    "fallback": "!!!",
+                    "callback_id": "wopr_game",
                     "color": "#3AA3E3",
                     "attachment_type": "default",
                     "actions": [
