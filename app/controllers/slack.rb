@@ -2,7 +2,7 @@ class SlackController < ApplicationController
 
     def event_receiver
 
-        response_text = parse_text(params['text'])
+        response_text = parse_text(params['event']['text'])
         
         send_response(response_text)
 
