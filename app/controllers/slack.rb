@@ -14,9 +14,8 @@ class SlackController < ApplicationController
         elsif params['payload']
 
             if params['payload']['type'] == "interactive_message"
-                if params['payload']['actions'][0]['value'] == "Add"
-                    puts 'ADDDDD'
-                end
+                response_text = open_add_dialogue()
+                send_response(response_text)
             end
         end
         
@@ -43,27 +42,27 @@ class SlackController < ApplicationController
     end
 
     def open_add_dialogue 
-    # open_dialogue = {
-    #     "trigger_id": "13345224609.738474920.8088930838d88f008e0",
-    #     "dialog": {
-    #         "callback_id": "ryde-46e2b0",
-    #         "title": "Request a Ride",
-    #         "submit_label": "Request",
-    #         "notify_on_cancel": true,
-    #         "elements": [
-    #             {
-    #                 "type": "text",
-    #                 "label": "Pickup Location",
-    #                 "name": "loc_origin"
-    #             },
-    #             {
-    #                 "type": "text",
-    #                 "label": "Dropoff Location",
-    #                 "name": "loc_destination"
-    #             }
-    #         ]
-    #     }
-    # }
+        open_dialogue = {
+            "trigger_id": "13345224609.738474920.8088930838d88f008e0",
+            "dialog": {
+                "callback_id": "ryde-46e2b0",
+                "title": "Request a Ride",
+                "submit_label": "Request",
+                "notify_on_cancel": true,
+                "elements": [
+                    {
+                        "type": "text",
+                        "label": "Pickup Location",
+                        "name": "loc_origin"
+                    },
+                    {
+                        "type": "text",
+                        "label": "Dropoff Location",
+                        "name": "loc_destination"
+                    }
+                ]
+            }
+        }
     end
 
     def add_trigger
@@ -87,9 +86,6 @@ class SlackController < ApplicationController
                 }
             ]
         }
-
-        
-
     end
 
     def add_session()
