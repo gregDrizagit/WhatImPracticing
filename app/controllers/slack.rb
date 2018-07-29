@@ -13,9 +13,7 @@ class SlackController < ApplicationController
 
         elsif params['payload']
                 # trigger_id = params['payload']['response_url']
-                JSON.parse(params["payload"]).each do |key, value|
-                    puts key
-                end
+                JSON.parse(params["payload"])['trigger_id']
                 dialogue = open_add_dialogue(trigger_id)
                 send_dialogue(dialogue)
         end
