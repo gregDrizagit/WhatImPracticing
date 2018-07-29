@@ -12,7 +12,7 @@ class SlackController < ApplicationController
             end
 
         elsif params['payload']
-                trigger_id = params['payload'][:trigger_id]
+                trigger_id = params['payload']["trigger_id"]
                 puts trigger_id
                 dialogue = open_add_dialogue(trigger_id)
                 send_dialogue(dialogue)
