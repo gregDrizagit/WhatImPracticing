@@ -19,7 +19,7 @@ class SlackController < ApplicationController
                     dialogue = open_add_dialogue(json['trigger_id'])
                     send_dialogue(dialogue)
                 elsif json['type'] == "dialog_submission"
-
+                    parse_dialogue(json)
                 end
         end
         

@@ -84,7 +84,8 @@ module Slackable
         # Session.add()
     end
 
-    def parse_dialogue
+    def parse_dialogue(resp)
+        puts resp
     end
 
 
