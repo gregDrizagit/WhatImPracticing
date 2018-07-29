@@ -72,12 +72,20 @@ module Slackable
             response_text ="What do you want to delete"
         elsif downcase_text.include? "edit"
             response_text = "what do you want to edit"
+        elsif downcase_text.include? 'last'
+            response_text = "Here are the last things you practiced: "
+            get_last_session()
         else
             response_text = "I don't know what that means. Say something that I know what it means."
         end
 
         response_text
         
+    end
+
+    def get_last_session
+        session = Session.get_last_session
+        send_response(session)
     end
 
   
