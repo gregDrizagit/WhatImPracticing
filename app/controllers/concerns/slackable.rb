@@ -86,13 +86,13 @@ module Slackable
     def get_last_session
 
         session = Session.get_last_session
-        puts session
+        puts session.to_json
         response = {
             "text": 'Here are the last things you practiced',
             "attachments":[
                 {
                     "title": session.name,
-                    "pretext": session.duration,
+                    "pretext": session.tempo,
                     "text": session.description,
                     "mrkdwn_in": ["text", "pretext"]
                 }
