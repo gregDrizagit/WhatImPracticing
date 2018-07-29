@@ -14,7 +14,7 @@ class SlackController < ApplicationController
         elsif params['payload']
                 json = JSON.parse(params["payload"])
                 puts json['trigger_id']
-                dialogue = open_add_dialogue(json[:trigger_id])
+                dialogue = open_add_dialogue(json['trigger_id'])
                 send_dialogue(dialogue)
         end
         
