@@ -86,7 +86,6 @@ module Slackable
     def get_last_session
 
         session = Session.get_last_session
-        puts time
         response = {
             "text": 'Here are the last things you practiced',
             "attachments":[
