@@ -14,26 +14,13 @@ module Slackable
                         "type": "text",
                         "label": "Exercise Name",
                         "name": "name"
-                    },
-                    {
-                        "type": "text",
-                        "label": "Description",
-                        "name": "description"
-                    },
-                    {
-                        "type": "text",
-                        "label": "Tempo",
-                        "name": "tempo"
-                    },
-                    {
-                        "type": "text",
-                        "label": "Key Signature",
-                        "name": "key"
                     }
                 ]
             }
         }
     end
+
+  
 
     def add_trigger
         dialogue = {
