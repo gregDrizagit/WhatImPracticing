@@ -6,7 +6,7 @@ module Slackable
             'trigger_id': trigger_id, 
             "dialog": {
                 "callback_id": "add-session-dialogue",
-                "title": "What did you practice today?",
+                "title": "Practice?",
                 "submit_label": "Submit",
                 "notify_on_cancel": true,
                 "elements": [
@@ -14,6 +14,21 @@ module Slackable
                         "type": "text",
                         "label": "Exercise Name",
                         "name": "name"
+                    },
+                    {
+                        "type": "text",
+                        "label": "Description",
+                        "name": "description"
+                    },
+                    {
+                        "type": "text",
+                        "label": "Tempo",
+                        "name": "tempo"
+                    },
+                    {
+                        "type": "text",
+                        "label": "Key Signature",
+                        "name": "key"
                     }
                 ]
             }
