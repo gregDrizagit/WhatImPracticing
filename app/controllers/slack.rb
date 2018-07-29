@@ -12,12 +12,12 @@ class SlackController < ApplicationController
             end
 
         elsif params['payload']
-                json = JSON.parse(params["payload"])
 
-                if(json['type'] == "interactive_message"){
+                json = JSON.parse(params["payload"])
+                if json['type'] == "interactive_message"
                     dialogue = open_add_dialogue(json['trigger_id'])
                     send_dialogue(dialogue)
-                }
+                end
         end
         
     end
