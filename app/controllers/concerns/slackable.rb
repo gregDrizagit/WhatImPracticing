@@ -85,7 +85,7 @@ module Slackable
     def parse_dialogue(resp)
         submission = resp['submission']
         submission.each do |key, value|
-            puts key
+            puts value
         end
     end
 
