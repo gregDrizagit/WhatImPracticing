@@ -73,7 +73,7 @@ module Slackable
         elsif downcase_text.include? "edit"
             response_text = "what do you want to edit"
         elsif downcase_text.include? 'last'
-            response_text = "Here are the last things you practiced: " + get_last_session()
+            response_text = get_last_session()
             
         else
             response_text = "I don't know what that means. Say something that I know what it means."
@@ -84,7 +84,21 @@ module Slackable
     end
 
     def get_last_session
+
         session = Session.get_last_session
+
+        response = {
+            "text": 'Here are the last things you practiced',
+            "attachments":[
+                {
+                    "title": session.name,
+                    "pretext": "Pretext _supports_ mrkdwn",
+                    "text": "Testing *right now!*",
+                    "mrkdwn_in": ["text", "pretext"]
+                }
+            ]
+        }
+
     end
 
   
