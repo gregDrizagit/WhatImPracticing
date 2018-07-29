@@ -93,7 +93,7 @@ module Slackable
             "attachments":[
                 {
                     "title": session.name,
-                    "pretext": DateTime.new(session.created_at).gregorian
+                    "pretext": DateTime.new(session.created_at).gregorian,
                     "text": session.description,
                     "mrkdwn_in": ["text", "pretext"]
                 }
