@@ -96,7 +96,7 @@ class SlackController < ApplicationController
     def send_response(res)
         url = 'https://hooks.slack.com/services/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'
         data = res.to_json
-        response = RestClient.post(url, data, :content_type => :json)
+        response = RestClient.post(url, data, {:content_type => :json, :accept => :json})
     end
 
     def send_dialogue(dialogue)
