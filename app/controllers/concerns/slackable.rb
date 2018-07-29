@@ -19,12 +19,12 @@ module Slackable
                         "type": "text",
                         "label": "Description",
                         "name": "description"
-                    }
+                    },
                     {
                         "type": "text",
                         "label": "Tempo",
                         "name": "tempo"
-                    }
+                    },
                     {
                         "type": "text",
                         "label": "Key Signature",
