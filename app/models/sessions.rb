@@ -1,6 +1,6 @@
 class Session < ApplicationRecord 
 
     def add(data)
-        Session.create()
+        Session.create(data)
     end
 end
