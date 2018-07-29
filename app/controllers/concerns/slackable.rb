@@ -80,12 +80,13 @@ module Slackable
         
     end
 
-    def add_session()
-        # Session.add()
-    end
+  
 
     def parse_dialogue(resp)
-        puts resp
+        submission = resp['submission']
+        submission.each do |key, value|
+            puts key
+        end
     end
 
 
