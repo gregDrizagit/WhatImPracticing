@@ -86,13 +86,13 @@ module Slackable
     def get_last_session
 
         session = Session.get_last_session
-
+        
         response = {
             "text": 'Here are the last things you practiced',
             "attachments":[
                 {
                     "title": session.name,
-                    "pretext": "Pretext _supports_ mrkdwn",
+                    "pretext": session.timestamp,
                     "text": session.description,
                     "mrkdwn_in": ["text", "pretext"]
                 }
