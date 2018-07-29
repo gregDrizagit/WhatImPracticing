@@ -93,7 +93,7 @@ module Slackable
                 {
                     "title": session.name,
                     "pretext": "Pretext _supports_ mrkdwn",
-                    "text": "Testing *right now!*",
+                    "text": session.description,
                     "mrkdwn_in": ["text", "pretext"]
                 }
             ]
