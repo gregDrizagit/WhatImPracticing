@@ -1,5 +1,6 @@
 class SlackController < ApplicationController
-
+    include Slackable
+    
     def event_receiver
 
         if params['event'] # did we get an event message or a payload
@@ -17,6 +18,8 @@ class SlackController < ApplicationController
                 if json['type'] == "interactive_message"
                     dialogue = open_add_dialogue(json['trigger_id'])
                     send_dialogue(dialogue)
+                elsif json['type'] == "dialog_submission"
+
                 end
         end
         
@@ -42,55 +45,12 @@ class SlackController < ApplicationController
         
     end
 
-    def open_add_dialogue(trigger_id) 
-        open_dialogue = {
-            'trigger_id': trigger_id, 
-            "dialog": {
-                "callback_id": "ryde-46e2b0",
-                "title": "Request a Ride",
-                "submit_label": "Request",
-                "notify_on_cancel": true,
-                "elements": [
-                    {
-                        "type": "text",
-                        "label": "Pickup Location",
-                        "name": "loc_origin"
-                    },
-                    {
-                        "type": "text",
-                        "label": "Dropoff Location",
-                        "name": "loc_destination"
-                    }
-                ]
-            }
-        }
-    end
-
-    def add_trigger
-        dialogue = {
-            "text": "Add practice routine/",
-            "attachments": [
-                {
-                    "fallback": "!!!",
-                    "callback_id": "wopr_game",
-                    "color": "#3AA3E3",
-                    "attachment_type": "default",
-                    "actions": [
-                        {
-                            "name": "Add",
-                            "text": "What did you practice today?",
-                            "type": "button",
-                            "value": "Add"
-                        }
-
-                    ]
-                }
-            ]
-        }
-    end
-
+  
     def add_session()
         # Session.add()
+    end
+
+    def parse_dialogue
     end
 
     def send_response(res)
