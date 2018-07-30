@@ -9,17 +9,20 @@ class SlackController < ApplicationController
 
                 response_text = parse_text(params['event']['text']) #see what the message was
                 send_response(response_text) #send the response
-
             end
 
         elsif params['payload']
 
                 json = JSON.parse(params["payload"])
                 if json['type'] == "interactive_message"
+
                     dialogue = open_add_dialogue(json['trigger_id'])
                     send_dialogue(dialogue)
+
                 elsif json['type'] == "dialog_submission"
+
                     parse_dialogue(json)
+                    
                 end
         end
         

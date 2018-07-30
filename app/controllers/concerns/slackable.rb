@@ -43,7 +43,7 @@ module Slackable
             "attachments": [
                 {
                     "fallback": "!!!",
-                    "callback_id": "wopr_game",
+                    "callback_id": "add_session",
                     "color": "#3AA3E3",
                     "attachment_type": "default",
                     "actions": [
@@ -104,7 +104,6 @@ module Slackable
 
     def parse_dialogue(resp)
         submission = resp['submission']
-       
         Session.add(submission)
     end
 
