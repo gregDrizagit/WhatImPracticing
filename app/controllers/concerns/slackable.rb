@@ -102,7 +102,7 @@ module Slackable
 
     def self.daily_reminder
     
-        send_response(add_trigger())
+        SlackController.send_response(add_trigger())
         
     end
     
