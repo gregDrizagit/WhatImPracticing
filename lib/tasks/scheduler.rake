@@ -3,6 +3,6 @@ namespace :scheduler do
 
 
     task :daily_reminder => :environment do 
-        SlackController.daily_reminder()
+        Slackable.daily_reminder()
     end
 end
