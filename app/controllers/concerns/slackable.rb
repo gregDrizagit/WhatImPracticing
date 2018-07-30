@@ -39,7 +39,7 @@ module Slackable
 
     def add_trigger
         dialogue = {
-            "text": "Add practice routine/",
+            "text": "Add practice routine!",
             "attachments": [
                 {
                     "fallback": "!!!",

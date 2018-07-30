@@ -49,8 +49,8 @@ class SlackController < ApplicationController
 
     def self.daily_reminder
     
-        puts "IT WORKED"
-    
+        send_response(add_trigger)
+        
     end
 
   
