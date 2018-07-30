@@ -100,6 +100,11 @@ module Slackable
 
     end
 
+    def self.daily_reminder
+    
+        send_response(add_trigger())
+        
+    end
     
 
     def parse_dialogue(resp)
