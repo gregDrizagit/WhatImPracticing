@@ -100,7 +100,7 @@ module Slackable
 
     end
 
-  
+    
 
     def parse_dialogue(resp)
         submission = resp['submission']

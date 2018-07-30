@@ -22,20 +22,20 @@ class SlackController < ApplicationController
                 elsif json['type'] == "dialog_submission"
 
                     parse_dialogue(json)
-                    
+
                 end
         end
         
     end
 
    
-    def send_response(res)
+    def self.send_response(res)
         url = 'https://hooks.slack.com/services/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'
         data = res.to_json
         response = RestClient.post(url, data, {:content_type => :json, :accept => :json})
     end
 
-    def send_dialogue(dialogue)
+    def self.send_dialogue(dialogue)
         token = 'Bearer xoxb-406277854996-406582689938-SNKLIUU3erryz00MrZDGdOl3'
         url = 'https://slack.com/api/dialog.open'
         data = dialogue.to_json
@@ -47,5 +47,12 @@ class SlackController < ApplicationController
         puts response
     end
 
+    def self.daily_reminder
+    
+        puts "IT WORKED"
+    
+    end
+
+  
 
 end
