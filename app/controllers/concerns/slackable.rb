@@ -37,7 +37,7 @@ module Slackable
 
   
 
-    def add_trigger
+    def self.add_trigger
         dialogue = {
             "text": "Add practice routine!",
             "attachments": [
@@ -100,11 +100,7 @@ module Slackable
 
     end
 
-    def self.daily_reminder
     
-        SlackController.send_response(add_trigger())
-        
-    end
     
 
     def parse_dialogue(resp)
