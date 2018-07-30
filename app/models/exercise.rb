@@ -1,0 +1,4 @@
+class Exercise < ApplicationRecord
+
+    
+end
