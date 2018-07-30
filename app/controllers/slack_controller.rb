@@ -47,7 +47,11 @@ class SlackController < ApplicationController
         puts response
     end
 
-   
+    def self.daily_reminder
+    
+        send_response(Slackable.add_trigger())
+        
+    end
 
   
 
