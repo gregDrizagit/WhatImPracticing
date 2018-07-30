@@ -49,7 +49,7 @@ class SlackController < ApplicationController
 
     def self.daily_reminder
     
-        send_response(add_trigger)
+        send_response(add_trigger())
         
     end
 
