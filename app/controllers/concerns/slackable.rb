@@ -49,7 +49,7 @@ module Slackable
                     "actions": [
                         {
                             "name": "Add",
-                            "text": "What did you practice today?",
+                            "text": "Add practice session.",
                             "type": "button",
                             "value": "Add"
                         }
@@ -67,12 +67,19 @@ module Slackable
         downcase_text = text.downcase
 
         if downcase_text.include? 'add'
+
             response_text = add_trigger()
+
         elsif downcase_text.include? 'delete'
+
             response_text ="What do you want to delete"
+
         elsif downcase_text.include? "edit"
+
             response_text = "what do you want to edit"
+
         elsif downcase_text.include? 'last'
+
             response_text = get_last_session()
             
         else

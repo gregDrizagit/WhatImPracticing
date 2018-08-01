@@ -1,4 +1,5 @@
 class SlackController < ApplicationController
+
     include Slackable
 
     def event_receiver
@@ -52,7 +53,5 @@ class SlackController < ApplicationController
         send_response(Slackable.add_trigger())
         
     end
-
-  
 
 end
