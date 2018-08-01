@@ -74,7 +74,7 @@ module Slackable
 
         if downcase_text.include? 'add'
 
-            response_text = add_trigger()
+            response_text = self.class.add_trigger()
 
         elsif downcase_text.include? 'delete'
 
