@@ -18,11 +18,15 @@ class SlackController < ApplicationController
                 if json['type'] == "interactive_message"
 
                     if json['actions'][0]['value'] == 'Add' #did we get a an event to add exercise to session or create a new session
-                        puts 'ADDDD'
+
                         add_dialogue = open_add_dialogue(json['trigger_id'])
                         SlackController.send_dialogue(dialogue)
+
                     elsif json['actions'][0]['value'] == 'New'
-                        new_session_diallgue = open_new_session_dialogue
+
+                        new_session_diallgue = open_new_session_dialogue(json["trigger_id"])
+                        SlackController.send_dialogue(new_session_diallgue)
+                        
                     end
 
                 elsif json['type'] == "dialog_submission"
