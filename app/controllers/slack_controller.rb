@@ -9,7 +9,7 @@ class SlackController < ApplicationController
             if params['event']['type'] == "app_mention" # if we got an app mention 
 
                 response_text = parse_text(params['event']['text']) #see what the message was
-                send_response(response_text) #send the response
+                SlackController.send_response(response_text) #send the response
             end
 
         elsif params['payload']
@@ -18,7 +18,7 @@ class SlackController < ApplicationController
                 if json['type'] == "interactive_message"
 
                     dialogue = open_add_dialogue(json['trigger_id'])
-                    send_dialogue(dialogue)
+                    SlackController.send_dialogue(dialogue)
 
                 elsif json['type'] == "dialog_submission"
 
