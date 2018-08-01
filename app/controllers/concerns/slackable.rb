@@ -35,7 +35,7 @@ module Slackable
         }
     end
 
-    def open_new_session_dialogue
+    def open_new_session_dialogue(trigger_id)
         open_dialogue = {
             'trigger_id': trigger_id, 
             "dialog": {
