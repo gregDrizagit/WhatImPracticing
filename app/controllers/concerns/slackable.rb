@@ -35,6 +35,30 @@ module Slackable
         }
     end
 
+    def open_new_session_dialogue
+        open_dialogue = {
+            'trigger_id': trigger_id, 
+            "dialog": {
+                "callback_id": "open-new-session-dialogue",
+                "title": "What are you working on?",
+                "submit_label": "Submit",
+                "notify_on_cancel": true,
+                "elements": [
+                    {
+                        "type": "text",
+                        "label": "Exercise Name",
+                        "name": "name"
+                    }
+                    {
+                        "type": "button",
+                        "label": "Add exercise",
+                        "name": "key"
+                    }
+                ]
+            }
+        }
+    end
+
   
 
     def self.add_trigger
