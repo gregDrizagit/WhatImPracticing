@@ -48,8 +48,14 @@ module Slackable
                     "attachment_type": "default",
                     "actions": [
                         {
+                            "name": "New",
+                            "text": "New practice session.",
+                            "type": "button",
+                            "value": "New"
+                        }
+                        {
                             "name": "Add",
-                            "text": "Add practice session.",
+                            "text": "Add exercise to session.",
                             "type": "button",
                             "value": "Add"
                         }
@@ -109,37 +115,37 @@ module Slackable
 
     def get_sessions_for_week
 
-        sessions = Session.get_sessions_for_week 
+        # sessions = Session.get_sessions_for_week 
 
-        response = {
-            "text": 'Here are the last things you practiced',
-            "attachments":[
-                {
-                    "title": session.name,
-                    "pretext": session.created_at ,
-                    "text": session.description,
-                    "mrkdwn_in": ["text", "pretext"]
-                }
-            ]
-        }
+        # response = {
+        #     "text": 'Here are the last things you practiced',
+        #     "attachments":[
+        #         {
+        #             "title": session.name,
+        #             "pretext": session.created_at ,
+        #             "text": session.description,
+        #             "mrkdwn_in": ["text", "pretext"]
+        #         }
+        #     ]
+        # }
 
-        if sessions.length < 7
-            response['text'] = "There isn't a weeks worth of sessions. "
-        else
-            session_objects = sessions.map do |session|
-                session_object = {
-                    "title": session.name,
-                    'pretext': session.created_at,
-                    'text': session.description,
-                    'markdwn_in': ['text', 'pretext']
-                }
-            end
+        # if sessions.length < 7
+        #     response['text'] = "There isn't a weeks worth of sessions. "
+        # else
+        #     session_objects = sessions.map do |session|
+        #         session_object = {
+        #             "title": session.name,
+        #             'pretext': session.created_at,
+        #             'text': session.description,
+        #             'markdwn_in': ['text', 'pretext']
+        #         }
+        #     end
 
-            response["attachments"] = session_objects
+        #     response["attachments"] = session_objects
 
-            send_response(response)
+        #     send_response(response)
 
-        end
+        # end
     end
 
     
