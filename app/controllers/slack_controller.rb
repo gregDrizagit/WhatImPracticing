@@ -17,6 +17,7 @@ class SlackController < ApplicationController
                 json = JSON.parse(params["payload"])
                 if json['type'] == "interactive_message"
 
+                    puts json
                     dialogue = open_add_dialogue(json['trigger_id'])
                     SlackController.send_dialogue(dialogue)
 

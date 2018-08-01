@@ -96,6 +96,10 @@ module Slackable
         
     end
 
+    def new_session 
+        # Session.create( )
+    end
+
     def get_last_session
 
         session = Session.get_last_session
