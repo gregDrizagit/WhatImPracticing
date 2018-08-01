@@ -52,7 +52,7 @@ module Slackable
                             "text": "New practice session.",
                             "type": "button",
                             "value": "New"
-                        }
+                        },
                         {
                             "name": "Add",
                             "text": "Add exercise to session.",
