@@ -48,7 +48,7 @@ module Slackable
                         "type": "text",
                         "label": "Exercise Name",
                         "name": "name"
-                    }
+                    },
                     {
                         "type": "button",
                         "label": "Add exercise",
