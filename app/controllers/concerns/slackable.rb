@@ -62,7 +62,7 @@ module Slackable
                         "label": "Select session",
                         "type": "select",
                         "name": "select_session",
-                        "options": default_option
+                        "options": default_option,
                         "value": default_option
                     },
                     {
