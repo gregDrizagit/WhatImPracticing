@@ -27,10 +27,14 @@ class SlackController < ApplicationController
                         new_session_dialogue = open_new_session_dialogue(json["trigger_id"])
                         SlackController.send_dialogue(new_session_dialogue)
 
+                    elsif json['actions'][0]['value'] == "AddToSession"
+
+                        preselected_session_dialogue = open_preselected_session_dialogue(json['trigger_id'], @new_session)
+                        SlackController.send_dialogue(preselected_session_dialogue)
+
                     end
 
                 elsif json['type'] == "dialog_submission"
-                    puts json
                     if json['callback_id'] == "add-exercise-dialogue"
                         
                         session = parse_exercise_dialogue(json['submission'])
@@ -39,10 +43,8 @@ class SlackController < ApplicationController
 
                     elsif json['callback_id'] == "new-session-dialogue"
 
-                        # Session.add(json['submission'])
-                        #send modal with session already selected 
-                        # SlackController.send_response(json['trigger_id'], )
-
+                        @new_session = Session.add(json['submission'])
+                        SlackController.send_response(add_exercise_to_session_trigger())
                     end
                 end
         end

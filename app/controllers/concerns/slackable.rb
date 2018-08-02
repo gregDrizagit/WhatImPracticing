@@ -47,7 +47,7 @@ module Slackable
         }
     end
 
-    def preselected_session_dialogue(trigger_id, session)
+    def open_preselected_session_dialogue(trigger_id, session)
 
         default_option = {label: "#{session.created_at} - #{session.notes}"}
         open_dialogue = {
@@ -110,6 +110,27 @@ module Slackable
     end
 
   
+    def add_exercise_to_session_trigger(session)
+        dialogue = {
+            "text": "Add exercise to session!",
+            "attachments": [
+                {
+                    "fallback": "!!!",
+                    "callback_id": "add_session",
+                    "color": "#3AA3E3",
+                    "attachment_type": "default",
+                    "actions": [
+                        {
+                            "name": "Add",
+                            "text": "Add exercise to session.",
+                            "type": "button",
+                            "value": "AddToSession"
+                        }
+                    ]
+                }
+            ]
+        }
+    end
 
     def self.add_trigger
         dialogue = {
