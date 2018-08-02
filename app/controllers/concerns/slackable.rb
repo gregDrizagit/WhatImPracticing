@@ -11,8 +11,7 @@ module Slackable
         open_dialogue = {
             'trigger_id': trigger_id, 
             "dialog": {
-                "callback_id": "add-session-dialogue",
-                "name": "add-exercise", 
+                "callback_id": "add-exercise-dialogue",
                 "title": "Practice?",
                 "submit_label": "Submit",
                 "notify_on_cancel": true,
@@ -52,7 +51,7 @@ module Slackable
         open_dialogue = {
             'trigger_id': trigger_id, 
             "dialog": {
-                "callback_id": "open-new-session-dialogue",
+                "callback_id": "new-session-dialogue",
                 "title": "What are you working on?",
                 "submit_label": "Submit",
                 "notify_on_cancel": true,

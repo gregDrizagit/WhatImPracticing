@@ -31,9 +31,12 @@ class SlackController < ApplicationController
 
                 elsif json['type'] == "dialog_submission"
 
-                    puts json['type']
+                    if json['callback_id'] == "add-exercise-dialogue"
                     # parse_dialogue(json)
-
+                        puts 'ADD SESSION'
+                    elsif json['callback_id'] == "new-session-dialogue"
+                        puts 'NEW SESSIOn'
+                    end
                 end
         end
         
