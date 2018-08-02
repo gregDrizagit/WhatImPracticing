@@ -110,7 +110,7 @@ module Slackable
     end
 
   
-    def add_exercise_to_session_trigger(session)
+    def add_exercise_to_session_trigger()
         dialogue = {
             "text": "Add exercise to session!",
             "attachments": [
