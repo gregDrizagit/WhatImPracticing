@@ -3,7 +3,8 @@ class Session < ApplicationRecord
     has_many :exercises
 
     def self.add(data)
-        Session.create(data)
+        session = Session.create(data)
+        session 
     end
 
     def self.get_last_session
