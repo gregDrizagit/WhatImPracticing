@@ -47,6 +47,49 @@ module Slackable
         }
     end
 
+    def preselected_session_dialogue(trigger_id, session)
+
+        default_option = {label: "#{session.created_at} - #{session.notes}"}
+        open_dialogue = {
+            'trigger_id': trigger_id, 
+            "dialog": {
+                "callback_id": "add-exercise-dialogue",
+                "title": "Practice?",
+                "submit_label": "Submit",
+                "notify_on_cancel": true,
+                "elements": [
+                    {
+                        "label": "Select session",
+                        "type": "select",
+                        "name": "select_session",
+                        "options": default_option
+                        "value": default_option
+                    },
+                    {
+                        "type": "text",
+                        "label": "Exercise Name",
+                        "name": "name"
+                    },
+                    {
+                        "type": "text",
+                        "label": "Description",
+                        "name": "description"
+                    },
+                    {
+                        "type": "text",
+                        "label": "Tempo",
+                        "name": "tempo"
+                    },
+                    {
+                        "type": "text",
+                        "label": "Key Signature",
+                        "name": "key"
+                    }
+                ]
+            }
+        }
+    end
+
     def open_new_session_dialogue(trigger_id)
         open_dialogue = {
             'trigger_id': trigger_id, 
@@ -186,6 +229,7 @@ module Slackable
 
     
     def parse_session_dialogue(resp)
+
     end
 
     def parse_exercise_dialogue(resp)

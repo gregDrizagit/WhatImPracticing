@@ -40,6 +40,9 @@ class SlackController < ApplicationController
                     elsif json['callback_id'] == "new-session-dialogue"
 
                         Session.add(json['submission'])
+                        #send modal with session already selected 
+                        
+                        SlackController.send_response()
 
                     end
                 end
