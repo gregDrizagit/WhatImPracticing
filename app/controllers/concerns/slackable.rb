@@ -11,6 +11,29 @@ module Slackable
                 "notify_on_cancel": true,
                 "elements": [
                     {
+                        "label": "Meal preferences",
+                        "type": "select",
+                        "name": "meal_preferences",
+                        "options": [
+                            {
+                            "label": "Hindu (Indian) vegetarian",
+                            "value": "hindu"
+                            },
+                            {
+                            "label": "Strict vegan",
+                            "value": "vegan"
+                            },
+                            {
+                            "label": "Kosher",
+                            "value": "kosher"
+                            },
+                            {
+                            "label": "Just put it in a burrito",
+                            "value": "burrito"
+                            } 
+                        ]
+                    },
+                    {
                         "type": "text",
                         "label": "Exercise Name",
                         "name": "name"
