@@ -198,8 +198,25 @@ module Slackable
                                        tempo: resp['tempo'], 
                                        key: resp['key'], 
                                        session_id: selected_session.id)
-        # send some kind of response, ask user to add another exercise
 
+        selected_session
+    end
+
+    def current_session_response(session)
+
+       exercises = session.exercises.map do |exercise|
+            {
+                "title": exercise.name,
+                "pretext": exercise.created_at,
+                "text": exercise.description,
+                "mrkdwn_in": ["text", "pretext"]
+            }
+        end
+
+        response = {
+            "text": "#{session.notes}",
+            "attachments": exercises
+        }
     end
 
 
