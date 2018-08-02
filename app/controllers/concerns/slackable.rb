@@ -190,7 +190,7 @@ module Slackable
 
     def parse_exercise_dialogue(resp)
 
-        selected_session = Session.find(id: resp['select_session']['id'])
+        selected_session = Session.find(resp['select_session']['id'])
 
         new_exercise = Exercise.create(description: resp["description"], 
                                        name: resp["name"],
