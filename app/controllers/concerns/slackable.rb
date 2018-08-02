@@ -214,7 +214,7 @@ module Slackable
         end
 
         response = {
-            "text": "#{session.notes}",
+            "text": "#{session.created_at} - #{session.notes}",
             "attachments": exercises
         }
     end
