@@ -1,7 +1,10 @@
 module Slackable
     extend ActiveSupport::Concern
 
+    
     def open_add_dialogue(trigger_id) 
+
+        options = Session.all.map {|session| {label:session.created_at, value: session.notes}}
         open_dialogue = {
             'trigger_id': trigger_id, 
             "dialog": {
@@ -11,27 +14,10 @@ module Slackable
                 "notify_on_cancel": true,
                 "elements": [
                     {
-                        "label": "Meal preferences",
+                        "label": "Select session",
                         "type": "select",
-                        "name": "meal_preferences",
-                        "options": [
-                            {
-                            "label": "Hindu (Indian) vegetarian",
-                            "value": "hindu"
-                            },
-                            {
-                            "label": "Strict vegan",
-                            "value": "vegan"
-                            },
-                            {
-                            "label": "Kosher",
-                            "value": "kosher"
-                            },
-                            {
-                            "label": "Just put it in a burrito",
-                            "value": "burrito"
-                            } 
-                        ]
+                        "name": "select_session",
+                        "options": options
                     },
                     {
                         "type": "text",
