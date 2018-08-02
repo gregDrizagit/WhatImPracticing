@@ -6,6 +6,9 @@ class Session < ApplicationRecord
         @session = Session.create(data)
     end
 
+    def last_session
+        @session
+    end
     def self.get_last_session
         last = Session.all.last
     end

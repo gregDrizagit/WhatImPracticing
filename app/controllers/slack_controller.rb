@@ -29,7 +29,7 @@ class SlackController < ApplicationController
 
                     elsif json['actions'][0]['value'] == "AddToSession"
 
-                        preselected_session_dialogue = open_preselected_session_dialogue(json['trigger_id'], @session)
+                        preselected_session_dialogue = open_preselected_session_dialogue(json['trigger_id'], Session.last_session)
                         SlackController.send_dialogue(preselected_session_dialogue)
 
                     end
