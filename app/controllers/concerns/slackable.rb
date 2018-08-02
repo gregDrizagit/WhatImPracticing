@@ -6,7 +6,7 @@ module Slackable
 
         #eventually what should happen here is that we should only return todays session. Maybe. Or maybe it would be cool 
         #to put together routines
-        options = Session.all.map {|session| {label:"#{session.created_at} - #{session.notes}", value: session.created_at}}
+        options = Session.all.map {|session| {label:"#{session.created_at} - #{session.notes}", value: session.id}}
 
         open_dialogue = {
             'trigger_id': trigger_id, 
@@ -185,11 +185,21 @@ module Slackable
     end
 
     
-    
+    def parse_session_dialogue(resp)
+    end
 
-    def parse_dialogue(resp)
-        submission = resp['submission']
-        puts submission
+    def parse_exercise_dialogue(resp)
+
+        selected_session = Session.find(id: resp['select_session'])
+
+        new_exercise = Exercise.create(description: resp["description"], 
+                                       name: resp["name"],
+                                       duration: resp['duration'])
+                                       tempo: resp['tempo'], 
+                                       key: resp['key'], 
+                                       session_id: selected_session.id)
+        # send some kind of response, ask user to add another exercise
+
     end
 
 
