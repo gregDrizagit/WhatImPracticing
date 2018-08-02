@@ -31,7 +31,8 @@ class SlackController < ApplicationController
 
                 elsif json['type'] == "dialog_submission"
 
-                    parse_dialogue(json)
+                    puts json['type']
+                    # parse_dialogue(json)
 
                 end
         end

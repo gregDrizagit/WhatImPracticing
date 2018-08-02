@@ -3,6 +3,9 @@ module Slackable
 
     
     def open_add_dialogue(trigger_id) 
+
+        #eventually what should happen here is that we should only return todays session. Maybe. Or maybe it would be cool 
+        #to put together routines
         options = Session.all.map {|session| {label:"#{session.created_at} - #{session.notes}", value: session.created_at}}
 
         open_dialogue = {
@@ -131,6 +134,7 @@ module Slackable
     def get_last_session
 
         session = Session.get_last_session
+
         response = {
             "text": 'Here are the last things you practiced',
             "attachments":[
@@ -185,7 +189,7 @@ module Slackable
 
     def parse_dialogue(resp)
         submission = resp['submission']
-        Session.add(submission)
+        puts submission
     end
 
 
