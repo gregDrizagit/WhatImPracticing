@@ -194,7 +194,7 @@ module Slackable
 
         new_exercise = Exercise.create(description: resp["description"], 
                                        name: resp["name"],
-                                       duration: resp['duration'])
+                                       duration: resp['duration'],
                                        tempo: resp['tempo'], 
                                        key: resp['key'], 
                                        session_id: selected_session.id)
