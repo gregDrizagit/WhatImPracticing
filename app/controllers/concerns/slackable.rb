@@ -207,7 +207,7 @@ module Slackable
        exercises = session.exercises.map do |exercise|
             {
                 "title": exercise.name,
-                "pretext": exercise.created_at,
+                "pretext": "#{exercise.tempo} #{exercise.key}",
                 "text": exercise.description,
                 "mrkdwn_in": ["text", "pretext"]
             }
