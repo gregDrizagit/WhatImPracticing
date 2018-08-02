@@ -3,8 +3,8 @@ module Slackable
 
     
     def open_add_dialogue(trigger_id) 
+        options = Session.all.map {|session| {label:session.created_at, value: session.created_at}}
 
-        options = Session.all.map {|session| {label:session.created_at, value: session.notes}}
         open_dialogue = {
             'trigger_id': trigger_id, 
             "dialog": {
