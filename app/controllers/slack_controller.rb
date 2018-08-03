@@ -17,40 +17,53 @@ class SlackController < ApplicationController
                 json = JSON.parse(params["payload"])
                 if json['type'] == "interactive_message"
 
-                    if json['actions'][0]['value'] == 'Add' #did we get a an event to add exercise to session or create a new session
-
-                        add_dialogue = open_add_dialogue(json['trigger_id'])
-                        SlackController.send_dialogue(add_dialogue)
-
-                    elsif json['actions'][0]['value'] == 'New'
-
-                        new_session_dialogue = open_new_session_dialogue(json["trigger_id"])
-                        SlackController.send_dialogue(new_session_dialogue)
-
-                    elsif json['actions'][0]['value'] == "AddToSession"
-
-                        preselected_session_dialogue = open_preselected_session_dialogue(json['trigger_id'], Session.all.last)
-                        SlackController.send_dialogue(preselected_session_dialogue)
-
-                    end
-
+                    interactive_message(json)
+                
                 elsif json['type'] == "dialog_submission"
-                    if json['callback_id'] == "add-exercise-dialogue"
-                        
-                        session = parse_exercise_dialogue(json['submission'])
 
-                        SlackController.send_response(current_session_response(session))
+                    dialog_submission(json)
 
-                    elsif json['callback_id'] == "new-session-dialogue"
-                        puts json['submission']
-                        Session.add(json['submission'])
-                        SlackController.send_response(add_exercise_to_session_trigger())
-                    end
                 end
         end
         
     end
 
+
+    def interactive_message(json)
+        if json['actions'][0]['value'] == 'Add' #did we get a an event to add exercise to session or create a new session
+
+            add_dialogue = open_add_dialogue(json['trigger_id'])
+            SlackController.send_dialogue(add_dialogue)
+
+        elsif json['actions'][0]['value'] == 'New'
+
+            new_session_dialogue = open_new_session_dialogue(json["trigger_id"])
+            SlackController.send_dialogue(new_session_dialogue)
+
+        elsif json['actions'][0]['value'] == "AddToSession"
+
+            preselected_session_dialogue = open_preselected_session_dialogue(json['trigger_id'], Session.all.last)
+            SlackController.send_dialogue(preselected_session_dialogue)
+
+        end
+    end
+
+    def dialog_submission(json)
+
+        if json['callback_id'] == "add-exercise-dialogue"
+                        
+            session = parse_exercise_dialogue(json['submission'])
+
+            SlackController.send_response(current_session_response(session))
+
+        elsif json['callback_id'] == "new-session-dialogue"
+
+            Session.add(json['submission'])
+
+            SlackController.send_response(add_exercise_to_session_trigger())
+        end
+
+    end
    
     def self.send_response(res)
         url = 'https://hooks.slack.com/services/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'

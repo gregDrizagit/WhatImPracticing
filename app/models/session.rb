@@ -6,6 +6,9 @@ class Session < ApplicationRecord
         @session = Session.create(data)
     end
 
+    def find_and_delete()
+
+    end
   
     def self.get_last_session
         last = Session.all.last
@@ -16,7 +19,7 @@ class Session < ApplicationRecord
     end
 
     def self.get_sessions_for_week
-        result = Session.find(:all, :order => "id desc", :limit => 7);
+        result = Session.find(:all, :order => "id desc", :limit => 5);
     end
 
     def self.delete_session

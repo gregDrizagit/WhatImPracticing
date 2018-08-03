@@ -163,6 +163,9 @@ module Slackable
 
     def parse_text(text)
         
+        ##this needs to be major refactored because it's ugly and it probably won't work for more complex input 
+        ##consider if you entered add and then delete. Add would go through first. Why didn't switch work
+        ## it really should have been a case statement from the start.
         response_text = ""
 
         downcase_text = text.downcase
@@ -179,6 +182,8 @@ module Slackable
 
             response_text = "what do you want to edit"
 
+        elsif downcase_text.include? 'show'
+            show_all_sessions()
         elsif downcase_text.include? 'last'
 
             response_text = get_last_session()
@@ -191,6 +196,22 @@ module Slackable
         
     end
 
+    def show_all_sessions
+        sessions = Session.get_sessions_for_week
+
+        session_objects = sessions.map do |session|
+        {
+            "title": session.created_at,
+            "text": session.notes,
+        }
+        end
+        response = {
+            "text": "#{session.created_at} - #{session.notes}",
+            "attachments": exercises
+        }
+
+    end
+
     def new_session 
         # Session.create( )
     end
@@ -198,7 +219,7 @@ module Slackable
     def get_last_session
 
         session = Session.get_last_session
-
+        ## this needs to change becasues now sessions have exercises. 
         response = {
             "text": 'Here are the last things you practiced',
             "attachments":[
@@ -263,7 +284,6 @@ module Slackable
                                        tempo: resp['tempo'], 
                                        key: resp['key'], 
                                        session_id: selected_session.id)
-
         selected_session
     end
 
