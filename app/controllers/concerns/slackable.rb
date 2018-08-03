@@ -223,8 +223,10 @@ module Slackable
                     "type": "button",
                     "value": "Edit"
                 }
+            ]
         }
         end
+
         response = {
             "text": "Here are your most recent sessions",
             "attachments": session_objects
