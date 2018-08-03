@@ -15,8 +15,9 @@ class SlackController < ApplicationController
         elsif params['payload']
 
                 json = JSON.parse(params["payload"])
-                if json['type'] == "interactive_message"
 
+                if json['type'] == "interactive_message"
+                    puts 'IT WAS AN INTERACIVE MESSAGE'
                     interactive_message(json)
                 
                 elsif json['type'] == "dialog_submission"
@@ -46,7 +47,9 @@ class SlackController < ApplicationController
             SlackController.send_dialogue(preselected_session_dialogue)
 
         elsif json['actions'][0]['value'] == "View"
+
             SlackController.send_message_followup(add_exercise_to_session_trigger(), json['response_url'])
+            
         end
     end
 
