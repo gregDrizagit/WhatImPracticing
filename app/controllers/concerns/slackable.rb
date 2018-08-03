@@ -204,6 +204,7 @@ module Slackable
         {
             "title": session.created_at,
             "text": session.notes,
+            'callback_id': 'session_view'
             "actions": [
                 {
                     "name": session.id,
