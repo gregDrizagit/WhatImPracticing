@@ -204,6 +204,25 @@ module Slackable
         {
             "title": session.created_at,
             "text": session.notes,
+            "actions": [
+                {
+                    "name": session.id,
+                    "text": "View",
+                    "type": "button",
+                    "value": "View"
+                },
+                {
+                    "name": session.id,
+                    "text": "Delete",
+                    "type": "button",
+                    "value": "Delete"
+                }
+                {
+                    "name": session.id,
+                    "text": "Edit",
+                    "type": "button",
+                    "value": "Edit"
+                }
         }
         end
         response = {
