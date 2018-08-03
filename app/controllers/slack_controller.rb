@@ -46,7 +46,6 @@ class SlackController < ApplicationController
             SlackController.send_dialogue(preselected_session_dialogue)
 
         elsif json['actions'][0]['value'] == "View"
-            puts "WENT in here"
             SlackController.send_message_followup(add_exercise_to_session_trigger(), json['response_url'])
         end
     end
