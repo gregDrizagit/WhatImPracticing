@@ -19,7 +19,7 @@ class Session < ApplicationRecord
     end
 
     def self.get_sessions_for_week
-        result = Session.find(:all, :limit => 5);
+        result = Session.all[0..4]
     end
 
     def self.delete_session
