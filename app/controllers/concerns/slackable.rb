@@ -216,7 +216,7 @@ module Slackable
                     "text": "Delete",
                     "type": "button",
                     "value": "Delete"
-                }
+                },
                 {
                     "name": session.id,
                     "text": "Edit",
