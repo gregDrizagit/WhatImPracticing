@@ -45,6 +45,9 @@ class SlackController < ApplicationController
             preselected_session_dialogue = open_preselected_session_dialogue(json['trigger_id'], Session.all.last)
             SlackController.send_dialogue(preselected_session_dialogue)
 
+        elsif json['actions'][0]['value'] == "View"
+
+            SlackController.send_message_followup(add_exercise_to_session_trigger(), json['response_url'])
         end
     end
 
@@ -69,6 +72,19 @@ class SlackController < ApplicationController
         url = 'https://hooks.slack.com/services/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'
         data = res.to_json
         response = RestClient.post(url, data, {:content_type => :json, :accept => :json})
+    end
+
+    def self.send_message_followup(message, url)
+
+        token = 'Bearer xoxb-406277854996-406582689938-SNKLIUU3erryz00MrZDGdOl3'
+        data = message.to_json
+        headers = {
+            :content_type => :json, 
+            :Authorization => token,
+        }
+        response = RestClient.post(url, data, headers)
+        puts response
+
     end
 
     def self.send_dialogue(dialogue)
