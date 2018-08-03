@@ -207,8 +207,8 @@ module Slackable
         }
         end
         response = {
-            "text": "#{session.created_at} - #{session.notes}",
-            "attachments": exercises
+            "text": "Here are your most recent sessions",
+            "attachments": session_objects
         }
 
     end
