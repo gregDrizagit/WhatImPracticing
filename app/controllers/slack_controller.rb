@@ -48,7 +48,7 @@ class SlackController < ApplicationController
 
         elsif json['actions'][0]['value'] == "View"
 
-            SlackController.send_message_followup(add_exercise_to_session_trigger(), json['response_url'])
+            SlackController.send_message_followup(show_exercises_for_session(), json['response_url'])
             
         end
     end

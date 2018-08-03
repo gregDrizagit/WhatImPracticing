@@ -223,9 +223,25 @@ module Slackable
 
     end
 
-    def new_session 
-        # Session.create( )
+    def show_exercises_for_session(session)
+        session.exercises.each do |exercise|
+            {
+                "title": exercise.name,
+                "text": exercise.description,
+                "pretext": "#{exercise.tempo} #{exercise.key}",
+                'callback_id': 'session_view',
+                "actions": [
+                    {
+                        "name": session.id,
+                        "text": "Edit",
+                        "type": "button",
+                        "value": "Edit"
+                    }
+                ]
+            }
+        end        
     end
+
 
     def get_last_session
 
@@ -317,7 +333,9 @@ module Slackable
         selected_session
     end
 
-    def current_session_response(session)
+    def current_session_response(session_id)
+
+       session = Session.find(session_id)
 
        exercises = session.exercises.map do |exercise|
             {
