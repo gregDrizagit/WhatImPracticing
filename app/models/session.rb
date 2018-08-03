@@ -19,7 +19,7 @@ class Session < ApplicationRecord
     end
 
     def self.get_sessions_for_week
-        result = Session.all[0..1]
+        result = Session.all[0..5]
     end
 
     def self.delete_session
