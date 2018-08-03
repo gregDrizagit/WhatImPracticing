@@ -183,7 +183,7 @@ module Slackable
             response_text = "what do you want to edit"
 
         elsif downcase_text.include? 'show'
-            show_all_sessions()
+            response_text = show_all_sessions()
         elsif downcase_text.include? 'last'
 
             response_text = get_last_session()
