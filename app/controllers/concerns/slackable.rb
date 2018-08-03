@@ -281,26 +281,26 @@ module Slackable
 
     
     def parse_session_dialogue(resp)
-       actions = "actions": [
-            {
-                "name": session.id,
-                "text": "View",
-                "type": "button",
-                "value": "View"
-            },
-            {
-                "name": session.id,
-                "text": "Delete",
-                "type": "button",
-                "value": "Delete"
-            },
-            {
-                "name": session.id,
-                "text": "Edit",
-                "type": "button",
-                "value": "Edit"
-            }
-        ]
+    #    actions = "actions": [
+    #         {
+    #             "name": session.id,
+    #             "text": "View",
+    #             "type": "button",
+    #             "value": "View"
+    #         },
+    #         {
+    #             "name": session.id,
+    #             "text": "Delete",
+    #             "type": "button",
+    #             "value": "Delete"
+    #         },
+    #         {
+    #             "name": session.id,
+    #             "text": "Edit",
+    #             "type": "button",
+    #             "value": "Edit"
+    #         }
+    #     ]
     end
 
     def parse_exercise_dialogue(resp)
