@@ -197,7 +197,7 @@ module Slackable
     end
 
     def show_all_sessions
-        sessions = Session.get_sessions_for_week
+        sessions = Session.get_sessions_for_week()
 
         session_objects = sessions.map do |session|
         {
