@@ -193,6 +193,7 @@ module Slackable
         end
 
         response_text
+        ##need command dictionary so people know how to work the damn things 
         
     end
 
