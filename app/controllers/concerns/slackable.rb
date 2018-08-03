@@ -335,7 +335,7 @@ module Slackable
 
     def current_session_response(session_id)
 
-       session = Session.find(session_id)
+       session = Session.find(session_id.to_i)
 
        exercises = session.exercises.map do |exercise|
             {
