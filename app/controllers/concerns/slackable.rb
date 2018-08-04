@@ -49,7 +49,7 @@ module Slackable
 
     def open_preselected_session_dialogue(trigger_id, session)
 
-        default_option = [{label: "#{Date.new(session.created_at).strftime('%a %d %b %Y')} - #{session.notes}", value: session.id}]
+        default_option = [{label: "#{session.created_at.strftime('%a %d %b %Y')} - #{session.notes}", value: session.id}]
         open_dialogue = {
             'trigger_id': trigger_id, 
             "dialog": {
@@ -204,7 +204,7 @@ module Slackable
 
         session_objects = sessions.map do |session|
         {
-            "title": Date.new(session.created_at).strftime('%a %d %b %Y'),
+            "title": session.created_at.strftime('%a %d %b %Y'),
             "text": session.notes,
             'callback_id': 'session_view',
             "actions": [
