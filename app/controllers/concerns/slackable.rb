@@ -49,7 +49,7 @@ module Slackable
 
     def open_preselected_session_dialogue(trigger_id, session)
 
-        default_option = [{label: "#{session.created_at} - #{session.notes}", value: session.id}]
+        default_option = [{label: "#{Date.new(session.created_at).strftime('%a %d %b %Y')} - #{session.notes}", value: session.id}]
         open_dialogue = {
             'trigger_id': trigger_id, 
             "dialog": {
@@ -183,7 +183,9 @@ module Slackable
             response_text = "what do you want to edit"
 
         elsif downcase_text.include? 'show'
+
             response_text = show_all_sessions()
+
         elsif downcase_text.include? 'last'
 
             response_text = get_last_session()
@@ -252,7 +254,7 @@ module Slackable
             "attachments":[
                 {
                     "title": session.name,
-                    "pretext": session.created_at ,
+                    "pretext": Date.new(session.created_at).strftime('%a %d %b %Y'),
                     "text": session.description,
                     "mrkdwn_in": ["text", "pretext"]
                 }
@@ -347,7 +349,7 @@ module Slackable
         end
 
         response = {
-            "text": "#{session.created_at} - #{session.notes}",
+            "text": "#{Date.new(session.created_at).strftime('%a %d %b %Y')} - #{session.notes}",
             "attachments": exercises
         }
     end
