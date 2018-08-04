@@ -349,7 +349,7 @@ module Slackable
         end
 
         response = {
-            "text": "#{Date.new(session.created_at).strftime('%a %d %b %Y')} - #{session.notes}",
+            "text": "#{session.created_at.strftime('%a %d %b %Y')} - #{session.notes}",
             "attachments": exercises
         }
     end
