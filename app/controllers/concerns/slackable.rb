@@ -204,7 +204,7 @@ module Slackable
 
         session_objects = sessions.map do |session|
         {
-            "title": session.created_at,
+            "title": Date.new(session.created_at).strftime('%a %d %b %Y'),
             "text": session.notes,
             'callback_id': 'session_view',
             "actions": [
