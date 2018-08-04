@@ -339,19 +339,27 @@ module Slackable
 
        session = Session.find(session_id.to_i)
 
-       exercises = session.exercises.map do |exercise|
-            {
-                "title": exercise.name,
-                "pretext": "#{exercise.tempo} #{exercise.key}",
-                "text": exercise.description,
-                "mrkdwn_in": ["text", "pretext"]
-            }
-        end
+       if session.exercise.length > 0
+        exercises = session.exercises.map do |exercise|
+                {
+                    "title": exercise.name,
+                    "pretext": "#{exercise.tempo} #{exercise.key}",
+                    "text": exercise.description,
+                    "mrkdwn_in": ["text", "pretext"]
+                }
+            end
 
-        response = {
-            "text": "#{session.created_at.strftime('%a %d %b %Y')} - #{session.notes}",
-            "attachments": exercises
-        }
+            response = {
+                "text": "#{session.created_at.strftime('%a %d %b %Y')} - #{session.notes}",
+                "attachments": exercises
+            }
+        else
+
+            response ={
+                "text": "No exercises for this session."
+            }
+
+        end
     end
 
 
