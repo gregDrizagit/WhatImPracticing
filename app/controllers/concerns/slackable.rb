@@ -301,6 +301,7 @@ module Slackable
                 "text": "No exercises for this session.", 
                 "attachments":[
                     "title": 'View recent sessions?',
+                    'callback_id': "show_all_session", 
                     "actions":[
                         {
                             "name": "Show",
