@@ -101,7 +101,7 @@ module Slackable
                 "elements": [
                     {
                         "type": "text",
-                        "label": "What do you want to accomplish?",
+                        "label": "What is your goal?",
                         "name": "notes"
                     }
                 ]
