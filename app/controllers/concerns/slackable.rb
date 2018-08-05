@@ -304,7 +304,7 @@ module Slackable
                     "fallback": "!!!",
                     "actions":[
                         {
-                            
+                            "name": "Show"
                             "text": "Show",
                             "type": "button",
                             "value": "Show"
