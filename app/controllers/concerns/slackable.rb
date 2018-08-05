@@ -301,6 +301,7 @@ module Slackable
                 "text": "No exercises for this session.", 
                 "attachments":{
                     "callback_id": 'show_all_sessions',
+                    "fallback": "!!!",
                     "actions":[
                         {
                             
