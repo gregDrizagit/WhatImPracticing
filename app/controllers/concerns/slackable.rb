@@ -12,7 +12,7 @@ module Slackable
             'trigger_id': trigger_id, 
             "dialog": {
                 "callback_id": "add-exercise-dialogue",
-                "title": "Practice?",
+                "title": "Add exercise",
                 "submit_label": "Submit",
                 "notify_on_cancel": true,
                 "elements": [
