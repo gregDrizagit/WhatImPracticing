@@ -3,7 +3,7 @@ class SlackController < ApplicationController
     include Slackable
 
     def event_receiver
-
+        puts params
         if params['event'] # did we get an event message or a payload
 
             if params['event']['type'] == "app_mention" # if we got an app mention 
