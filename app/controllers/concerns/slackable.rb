@@ -230,7 +230,7 @@ module Slackable
             {
                 "title": exercise.name,
                 "text": exercise.description,
-                "pretext": "#{exercise.tempo} #{exercise.key}",
+                "pretext": "Tempo: #{exercise.tempo} - Key: #{exercise.key}",
                 'callback_id': 'session_view',
                 "actions": [
                     {
@@ -285,7 +285,7 @@ module Slackable
             exercises = session.exercises.map do |exercise|
                 {
                     "title": exercise.name,
-                    "pretext": "#{exercise.tempo} #{exercise.key}",
+                    "pretext": "Tempo: #{exercise.tempo} - Key: #{exercise.key}",
                     "text": exercise.description,
                     "mrkdwn_in": ["text", "pretext"]
                 }
