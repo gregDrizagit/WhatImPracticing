@@ -51,9 +51,10 @@ class SlackController < ApplicationController
             response = current_session_response(json['actions'][0]['name'])
             SlackController.send_response(response)
         elsif json['actions'][0]['value'] == "Show"
-            puts "WENT IN SHOW"
+
             response = show_all_sessions()
             SlackController.send_response(response)
+            
         end
     end
 
