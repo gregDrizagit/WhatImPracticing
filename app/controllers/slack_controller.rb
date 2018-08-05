@@ -17,7 +17,7 @@ class SlackController < ApplicationController
                 json = JSON.parse(params["payload"])
 
                 if json['type'] == "interactive_message"
-                    puts 'IT WAS AN INTERACIVE MESSAGE'
+                    
                     interactive_message(json)
                 
                 elsif json['type'] == "dialog_submission"
