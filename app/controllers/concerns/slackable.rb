@@ -300,7 +300,7 @@ module Slackable
             response = {
                 "text": "No exercises for this session.", 
                 "attachments":{
-                    "title": 'View recent sessions?'
+                    "title": 'View recent sessions?',
                     "actions":[
                         {
                             "name": "Show",
