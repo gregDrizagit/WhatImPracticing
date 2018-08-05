@@ -298,7 +298,7 @@ module Slackable
         else
 
             response = {
-                "text": "No exercises for this session.", 
+                "text": "No exercises for fdsafdas session.", 
                 "attachments":{
                     "title": 'View recent sessions?',
                     "actions":[
