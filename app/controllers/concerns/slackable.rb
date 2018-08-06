@@ -230,8 +230,9 @@ module Slackable
             {
                 "title": exercise.name,
                 "text": exercise.description,
-                "pretext": "Tempo: #{exercise.tempo} - Key: #{exercise.key}",
+                "pretext": "*Tempo:* #{exercise.tempo} - *Key:* #{exercise.key}",
                 'callback_id': 'session_view',
+                "mrkdwn": true,
                 "actions": [
                     {
                         "name": session.id,
