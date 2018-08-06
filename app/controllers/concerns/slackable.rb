@@ -285,16 +285,17 @@ module Slackable
        if session.exercises.length > 0
             exercises = session.exercises.map do |exercise|
                 {
-                    "title": "*#{exercise.name}*",
+                    "text": "*#{exercise.name}*",
                     "pretext": "*Tempo:* #{exercise.tempo} - *Key:* #{exercise.key}",
                     "text": exercise.description,
-                    "mrkdwn_in": ["title", "pretext"]
+                    "mrkdwn_in": ["text", "pretext"]
                 }
             end
 
             response = {
-                "text": "#{session.created_at.strftime('%a %d %b %Y')} - #{session.notes}",
-                "attachments": exercises
+                "text": "*#{session.created_at.strftime('%a %d %b %Y')} - #{session.notes}*",
+                "attachments": exercises,
+                "mrkdwn": true
             }
         else
 
