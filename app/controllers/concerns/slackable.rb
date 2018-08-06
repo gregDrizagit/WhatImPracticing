@@ -294,7 +294,7 @@ module Slackable
 
             response = {
                 "title": "*#{session.created_at.strftime('%a %d %b %Y')} - #{session.notes}*",
-                "text": "Here are the exercises you practiced"
+                "text": "Here are the exercises you practiced",
                 "attachments": exercises,
                 "mrkdwn": true
             }
