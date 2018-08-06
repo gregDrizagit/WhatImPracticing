@@ -285,10 +285,10 @@ module Slackable
        if session.exercises.length > 0
             exercises = session.exercises.map do |exercise|
                 {
-                    "title": exercise.name,
-                    "pretext": "Tempo: #{exercise.tempo} - Key: #{exercise.key}",
+                    "title": "*#{exercise.name}*",
+                    "pretext": "*Tempo:* #{exercise.tempo} - *Key:* #{exercise.key}",
                     "text": exercise.description,
-                    "mrkdwn_in": ["text", "pretext"]
+                    "mrkdwn_in": ["title", "pretext"]
                 }
             end
 
@@ -299,7 +299,8 @@ module Slackable
         else
 
             response = {
-                "text": "No exercises for this session.", 
+                "text": "*No exercises for this session*.", 
+                "mrkdown": true, 
                 "attachments":[
                     "text": 'View recent sessions?',
                     'callback_id': "show_all_session", 
