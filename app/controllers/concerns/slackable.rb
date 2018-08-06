@@ -228,7 +228,7 @@ module Slackable
     def show_exercises_for_session(session)
         session.exercises.each do |exercise|
             {
-                "title": "#{*exercise.name*}",
+                "title": "*#{exercise.name}*",
                 "text": exercise.description,
                 "pretext": "*Tempo:* #{exercise.tempo} - *Key:* #{exercise.key}",
                 'callback_id': 'session_view',
