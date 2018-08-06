@@ -232,7 +232,7 @@ module Slackable
                 "text": exercise.description,
                 "pretext": "*Tempo:* #{exercise.tempo} - *Key:* #{exercise.key}",
                 'callback_id': 'session_view',
-                "mrkdwn_in": ["title", "pretext"]
+                "mrkdwn_in": ["title", "pretext"],
                 "actions": [
                     {
                         "name": session.id,
