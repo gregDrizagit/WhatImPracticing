@@ -278,9 +278,9 @@ module Slackable
         selected_session
     end
 
-    def current_session_response(session_id)
+    def current_session_response(session)
 
-       session = Session.find(session_id.id)
+       session = Session.find(session.id)
 
        if session.exercises.length > 0
             exercises = session.exercises.map do |exercise|
