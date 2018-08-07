@@ -293,7 +293,7 @@ module Slackable
                 }
             end
 
-            exercises['actions'] =  [
+            exercises[:actions] =  [
                 {
                     "name": session,
                     "text": "Add another exercise session.",
