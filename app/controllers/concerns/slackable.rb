@@ -293,15 +293,17 @@ module Slackable
                 }
             end
 
-            action = [
-                {
-                    "name": session,
-                    "text": "Add another exercise session.",
-                    "type": "button",
-                    "value": "AddToSession"
-                }
-            ]
-            exercises.push({"actions": action})
+            button = {
+                "callback_id": "add_another_session"
+                "actions":[
+                    {
+                        "name": session,
+                        "text": "Add another exercise session.",
+                        "type": "button",
+                        "value": "AddToSession"
+                    }
+                ]
+            }
                 
             response = {
                 "title": "*#{session.created_at.strftime('%a %d %b %Y')} - #{session.notes}*",
@@ -309,6 +311,8 @@ module Slackable
                 "attachments": exercises,
                 "mrkdwn": true
             }
+            response['attechments'].push(button)
+            response
         else
 
             response = {
