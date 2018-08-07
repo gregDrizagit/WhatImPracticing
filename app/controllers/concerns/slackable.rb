@@ -288,7 +288,7 @@ module Slackable
                     "title": "#{exercise.name}",
                     "pretext": "*Tempo:* #{exercise.tempo} - *Key:* #{exercise.key}",
                     "text": exercise.description,
-                    "mrkdwn_in": ["text", "pretext"]
+                    "mrkdwn_in": ["text", "pretext"],
                     "actions": [
                         {
                             "name": "session",
