@@ -10,6 +10,7 @@ class SlackController < ApplicationController
 
                 response_text = parse_text(params['event']['text']) #see what the message was
                 SlackController.send_response(response_text) #send the response
+
             end
 
         elsif params['payload']
@@ -44,7 +45,7 @@ class SlackController < ApplicationController
             preselected_session_dialogue = open_preselected_session_dialogue(json['trigger_id'], Session.all.last)
             SlackController.send_dialogue(preselected_session_dialogue)
         when "View"
-            response = current_session_response(json['actions'][0]['name'])
+            response = current_session_response(json['actions'][0]['name'].to_i)
             SlackController.send_response(response)
         when "AddAnotherSession"
             session = Session.find(json['actions'][0]['name'].to_i)
