@@ -305,7 +305,6 @@ module Slackable
                 "title": "*#{session.created_at.strftime('%a %d %b %Y')} - #{session.notes}*",
                 "text": "Here are the exercises you practiced",
                 "attachments": exercises,
-                "actions":
                 "mrkdwn": true
             }
         else
