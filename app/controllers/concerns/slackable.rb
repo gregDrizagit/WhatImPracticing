@@ -294,7 +294,8 @@ module Slackable
             end
 
             button = {
-                "text": "Add another exercise?",
+                "text": "Add another exercise?",            
+                'callback_id': 'add_another_view',
                 "actions":[
                     {
                         "name": session.id,
