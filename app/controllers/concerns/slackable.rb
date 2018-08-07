@@ -298,7 +298,7 @@ module Slackable
                 'callback_id': 'add_another_view',
                 "actions":[
                     {
-                        "name": session.id,
+                        "id": session.id,
                         "text": "Add exercise.",
                         "type": "button",
                         "value": "AddAnotherSession"
