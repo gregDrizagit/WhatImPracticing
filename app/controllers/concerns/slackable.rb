@@ -312,7 +312,7 @@ module Slackable
                 "mrkdwn": true
             }
 
-            puts response[:attachments].push(button)
+             response[:attachments].push(button)
             response
         else
 
