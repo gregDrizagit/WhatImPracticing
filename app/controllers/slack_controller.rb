@@ -54,6 +54,11 @@ class SlackController < ApplicationController
 
             response = show_all_sessions()
             SlackController.send_response(response)
+
+        else json['actions'][0]['value'] == "AddAnotherSession"
+
+            response = open_preselected_session_dialogue(json['trigger_id'], json['actions'][0]['name'])
+            SlackController.send_response(response)
             
         end
     end

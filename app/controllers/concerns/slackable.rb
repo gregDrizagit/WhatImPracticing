@@ -297,10 +297,10 @@ module Slackable
                 "text": "Add another session?",
                 "actions":[
                     {
-                        "name": "name",
+                        "name": session.id,
                         "text": "Add session.",
                         "type": "button",
-                        "value": "AddToSession"
+                        "value": "AddAnotherSession"
                     }
                 ]
             }
@@ -311,9 +311,7 @@ module Slackable
                 "attachments": exercises
             }
 
-
             response[:attachments].push(button)
-            puts response
             response
         else
 
