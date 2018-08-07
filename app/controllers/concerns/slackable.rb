@@ -285,8 +285,8 @@ module Slackable
        if session.exercises.length > 0
             exercises = session.exercises.map do |exercise|
                 {
-                    "title": "#{exercise.name}",
-                    "pretext": "*Tempo:* #{exercise.tempo} - *Key:* #{exercise.key}",
+                    "title": "*Tempo:* #{exercise.tempo} - *Key:* #{exercise.key}",
+                    "pretext": "#{exercise.name}",
                     "text": exercise.description,
                     "mrkdwn_in": ["text", "pretext"]
                    
