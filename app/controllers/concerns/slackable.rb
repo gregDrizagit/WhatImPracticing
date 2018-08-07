@@ -294,10 +294,11 @@ module Slackable
             end
 
             button = {
+                "text": "Add another session?",
                 "actions":[
                     {
                         "name": "name",
-                        "text": "Add another exercise session.",
+                        "text": "Add session.",
                         "type": "button",
                         "value": "AddToSession"
                     }
