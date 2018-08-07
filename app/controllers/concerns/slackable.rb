@@ -293,7 +293,9 @@ module Slackable
                 }
             end
 
-            button = [
+            button = {
+                "callback_id": "add_another_session",
+                "actions":[
                     {
                         "name": session.id,
                         "text": "Add another exercise session.",
@@ -301,7 +303,7 @@ module Slackable
                         "value": "AddToSession"
                     }
                 ]
-            
+            }
                 
             response = {
                 "title": "*#{session.created_at.strftime('%a %d %b %Y')} - #{session.notes}*",
@@ -311,8 +313,8 @@ module Slackable
             }
 
 
-            response[:attachments][:actions] = button
-            puts response
+            response[:attachments].push(button)
+            
             response
         else
 
