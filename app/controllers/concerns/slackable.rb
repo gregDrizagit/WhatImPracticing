@@ -294,7 +294,7 @@ module Slackable
             end
 
             button = {
-                "callback_id": "add_another_session"
+                "callback_id": "add_another_session",
                 "actions":[
                     {
                         "name": session,
