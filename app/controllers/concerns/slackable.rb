@@ -294,7 +294,6 @@ module Slackable
             end
 
             button = {
-                "callback_id": "add_another_session",
                 "actions":[
                     {
                         "name": session.id,
@@ -312,7 +311,7 @@ module Slackable
                 "mrkdwn": true
             }
 
-             response[:attachments].push(button)
+            response[:attachments].push(button)
             response
         else
 
