@@ -291,8 +291,8 @@ module Slackable
                     "mrkdwn_in": ["text", "pretext"]
                     "actions": [
                         {
-                            "name": "Add",
-                            "text": "Add exercise to session.",
+                            "name": "session",
+                            "text": "Add another exercise session.",
                             "type": "button",
                             "value": "AddToSession"
                         }
