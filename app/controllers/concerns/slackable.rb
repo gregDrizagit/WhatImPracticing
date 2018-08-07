@@ -245,25 +245,6 @@ module Slackable
     end
 
 
-    def get_last_session
-
-        session = Session.get_last_session
-        ## this needs to change becasues now sessions have exercises. 
-        response = {
-            "text": 'Here are the last things you practiced',
-            "attachments":[
-                {
-                    "title": session.name,
-                    "pretext": Date.new(session.created_at).strftime('%a %d %b %Y'),
-                    "text": session.description,
-                    "mrkdwn_in": ["text", "pretext"]
-                }
-            ]
-        }
-
-    end
-
-
     def parse_exercise_dialogue(resp)
 
         selected_session = Session.find(resp['select_session'].to_i)
@@ -282,6 +263,7 @@ module Slackable
        session = Session.find(session.id)
 
        if session.exercises.length > 0
+
             exercises = session.exercises.map do |exercise|
                 {
                     "title": "Tempo: #{exercise.tempo} - Key: #{exercise.key}",
