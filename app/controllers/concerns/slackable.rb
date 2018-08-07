@@ -293,8 +293,7 @@ module Slackable
                 }
             end
 
-            button = {
-                "actions":[
+            button = [
                     {
                         "name": session.id,
                         "text": "Add another exercise session.",
@@ -302,7 +301,7 @@ module Slackable
                         "value": "AddToSession"
                     }
                 ]
-            }
+            
                 
             response = {
                 "title": "*#{session.created_at.strftime('%a %d %b %Y')} - #{session.notes}*",
@@ -312,7 +311,7 @@ module Slackable
             }
 
 
-            response[:attachments].push(button)
+            response[:attachments][:actions] = button
             puts response
             response
         else
