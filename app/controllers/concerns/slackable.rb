@@ -311,7 +311,8 @@ module Slackable
                 "attachments": exercises,
                 "mrkdwn": true
             }
-            response['attachments'].push(button)
+
+            puts response['attachments'].class
             response
         else
 
