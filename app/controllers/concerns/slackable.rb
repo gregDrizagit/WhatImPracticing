@@ -301,7 +301,7 @@ module Slackable
                     "value": "AddToSession"
                 }
             ]
-            exercises.push({"actions": actions})
+            exercises.push({"actions": action})
                 
             response = {
                 "title": "*#{session.created_at.strftime('%a %d %b %Y')} - #{session.notes}*",
