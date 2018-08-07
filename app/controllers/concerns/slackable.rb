@@ -288,15 +288,8 @@ module Slackable
                     "title": "#{exercise.name}",
                     "pretext": "*Tempo:* #{exercise.tempo} - *Key:* #{exercise.key}",
                     "text": exercise.description,
-                    "mrkdwn_in": ["text", "pretext"],
-                    "actions": [
-                        {
-                            "name": "session",
-                            "text": "Add another exercise session.",
-                            "type": "button",
-                            "value": "AddToSession"
-                        }
-                    ]
+                    "mrkdwn_in": ["text", "pretext"]
+                   
                 }
             end
 
@@ -304,6 +297,14 @@ module Slackable
                 "title": "*#{session.created_at.strftime('%a %d %b %Y')} - #{session.notes}*",
                 "text": "Here are the exercises you practiced",
                 "attachments": exercises,
+                "actions": [
+                    {
+                        "name": session,
+                        "text": "Add another exercise session.",
+                        "type": "button",
+                        "value": "AddToSession"
+                    }
+                ],
                 "mrkdwn": true
             }
         else
