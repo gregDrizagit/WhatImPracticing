@@ -314,7 +314,7 @@ module Slackable
 
 
             response[:attachments].push(button)
-            
+            puts response
             response
         else
 
