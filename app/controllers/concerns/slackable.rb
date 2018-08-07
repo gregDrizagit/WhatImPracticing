@@ -294,10 +294,9 @@ module Slackable
             end
 
             button = {
-                "callback_id": "add_another_session",
                 "actions":[
                     {
-                        "name": session.id,
+                        "name": "name",
                         "text": "Add another exercise session.",
                         "type": "button",
                         "value": "AddToSession"
