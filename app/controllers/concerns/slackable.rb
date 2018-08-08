@@ -117,7 +117,7 @@ module Slackable
                 {
                     "fallback": "!!!",
                     "callback_id": "add_session",
-                    "color": "#3AA3E3",
+                    "color": "#eb8c44",
                     "attachment_type": "default",
                     "actions": [
                         {
@@ -139,7 +139,7 @@ module Slackable
                 {
                     "fallback": "!!!",
                     "callback_id": "add_session",
-                    "color": "#3AA3E3",
+                    "color": "#eb8c44",
                     "attachment_type": "default",
                     "actions": [
                         {
@@ -231,6 +231,7 @@ module Slackable
                 "text": exercise.description,
                 "pretext": "*#{exercise.name}*",
                 'callback_id': 'session_view',
+                "color": "#eb8c44",
                 "mrkdwn_in": ["title", "pretext"],
                 "actions": [
                     {
@@ -269,6 +270,7 @@ module Slackable
                     "title": "Tempo: #{exercise.tempo} - Key: #{exercise.key}",
                     "pretext": "*#{exercise.name}*",
                     "text": exercise.description,
+                    "color": "#eb8c44",
                     "mrkdwn_in": ["text", "pretext"]
                    
                 }
