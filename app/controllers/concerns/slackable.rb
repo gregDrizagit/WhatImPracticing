@@ -206,6 +206,7 @@ module Slackable
             "title": session.created_at.strftime('%a %d %b %Y'),
             "text": session.notes,
             'callback_id': 'session_view',
+            'color': 'adb084',
             "actions": [
                 {
                     "name": session.id,
@@ -305,6 +306,7 @@ module Slackable
                 "attachments":[
                     "text": 'View recent sessions?',
                     'callback_id': "show_all_session", 
+                    'color': 'adb084',
                     "actions":[
                         {
                             "name": "Show",
