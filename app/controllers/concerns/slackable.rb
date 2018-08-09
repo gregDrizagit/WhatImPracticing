@@ -291,7 +291,7 @@ module Slackable
                         "name": "Show",
                         "text": "Show sessions",
                         "type": "button",
-                        "value": "AddAnotherSession"
+                        "value": "Show"
                     }
                 ]
             }
