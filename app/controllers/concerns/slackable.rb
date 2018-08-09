@@ -6,7 +6,7 @@ module Slackable
 
         #eventually what should happen here is that we should only return todays session. Maybe. Or maybe it would be cool 
         #to put together routines
-        options = Session.all.map {|session| {label:"#{session.created_at.strftime('%a %d %b %Y')} - #{session.notes}", value: session.id}}
+        options = Session.all.map {|session| {label:"#{session.created_at.strftime('%a %d %b %Y')}", value: session.id}}
 
         open_dialogue = {
             'trigger_id': trigger_id, 
